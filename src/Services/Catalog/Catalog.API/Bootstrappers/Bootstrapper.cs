@@ -8,7 +8,7 @@ namespace Catalog.API.Bootstrappers
 {
     public static class Bootstrapper
     {
-        public static void RegisterDependencies(IServiceCollection services)
+        public static void RegisterDependencies(this IServiceCollection services)
         {
             RegisterClients(services);
             RegisterServices(services);            
