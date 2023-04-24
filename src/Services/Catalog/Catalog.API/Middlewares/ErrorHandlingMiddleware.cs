@@ -26,7 +26,12 @@ namespace Catalog.API.Middlewares
                 _log.LogInformation(ex, "{Message}", ex.Message);
                 await WriteAsJsonAsync(context, ex, HttpStatusCode.BadRequest);
             }
-            catch(EntityNotFoundException ex)
+            catch (EntityExistException ex)
+            {
+                _log.LogInformation(ex, "{Message}", ex.Message);
+                await WriteAsJsonAsync(context, ex, HttpStatusCode.BadRequest);
+            }
+            catch (EntityNotFoundException ex)
             {
                 _log.LogInformation(ex, "{Message}", ex.Message);
                 await WriteAsJsonAsync(context, ex, HttpStatusCode.NotFound);
@@ -42,7 +47,8 @@ namespace Catalog.API.Middlewares
         {
             context.Response.StatusCode = (int)statusCode;
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonSerializer.Serialize(ex.Message), cancellationToken);
+            JsonResponse jsonResponse = new(ex.Message);
+            await context.Response.WriteAsync(JsonSerializer.Serialize(jsonResponse), cancellationToken);
         }
     }
 }

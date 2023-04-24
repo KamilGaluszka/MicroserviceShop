@@ -1,6 +1,0 @@
-projectKey=MicroserviceShop
-serverUrl=http://localhost:9000
-serverVersion=10.0.0.68432
-dashboardUrl=http://localhost:9000/dashboard?id=MicroserviceShop
-ceTaskId=AYeoDfuj1mGYui9d9JhM
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYeoDfuj1mGYui9d9JhM

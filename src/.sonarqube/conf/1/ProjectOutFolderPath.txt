@@ -1,1 +1,0 @@
-C:\Users\Kamq\source\repos\MicroserviceShop\src\.sonarqube\out\1
